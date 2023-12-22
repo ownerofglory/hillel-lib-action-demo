@@ -16,4 +16,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Publish package
-        run: mvn clean verify sonar:sonar -Dsonar.projectKey=Hillel-Arithmetics-Lib -Dsonar.projectName='Hillel Arithmetics Lib' -Dsonar.host.url=${{ secrets.SONAR_HOST }} -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        run: mvn clean verify sonar:sonar -Dsonar.projectKey=Hillel-Arithmetics-Lib -Dsonar.projectName='Hillel Arithmetics Lib' -Dsonar.host.url=${{ secrets.SONAR_URL }} -Dsonar.token=${{ secrets.SONAR_TOKEN }}

@@ -8,10 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Compile code
+      - name: Setup maven
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Compile code
         run: mvn --batch-mode compile
 
   test:
@@ -19,10 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Compile code
+      - name: Setup maven
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Test code
         run: mvn --batch-mode test
 
   build:
@@ -30,8 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Compile code
+      - name: Setup maven
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Package code
         run: mvn --batch-mode package

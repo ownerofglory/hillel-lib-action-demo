@@ -16,6 +16,8 @@
         <junit.version>5.10.1</junit.version>
         <surefire-plugin.version>3.2.3</surefire-plugin.version>
         <nexus-plugin.version>1.5.1</nexus-plugin.version>
+        <sonarqube.version>3.4.0.905</sonarqube.version>
+        <jacoco.version>0.8.11</jacoco.version>
     </properties>
 
     <distributionManagement>
@@ -69,6 +71,32 @@
                     <skipStaging>true</skipStaging>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonarqube.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 

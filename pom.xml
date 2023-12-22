@@ -17,6 +17,14 @@
         <surefire-plugin.version>3.2.3</surefire-plugin.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-private</id>
+            <name>Nexus Private repo</name>
+            <url>https://nexus.ownerofglory.com/repository/hillel</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
